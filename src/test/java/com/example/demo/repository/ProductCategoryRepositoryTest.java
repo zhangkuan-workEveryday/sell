@@ -4,17 +4,19 @@ import com.example.demo.dataobject.ProductCategory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.annotation.Lazy;
 
-import static org.junit.jupiter.api.Assertions.*;
 
+//作用，提供springboot上下文，提供一个可运行程序
 @SpringBootTest
 class ProductCategoryRepositoryTest {
+    //自动装配
     @Autowired
     private ProductCategoryRepository repository;
 
     @Test
-    @Transactional
+//    @Transactional  // @Transaction 防止懒加载机制
+    @Lazy(value = false)
     public void findOneTest() {
 
         ProductCategory productCategory = repository.getOne(2);
