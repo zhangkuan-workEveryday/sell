@@ -1,0 +1,18 @@
+#这个位置的配置文件：加载顺序和优先级放在最后，比同级别的.propertities低
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.0.105:3306/sell?characterEncoding=UTF-8&useSSL=false
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /sell
