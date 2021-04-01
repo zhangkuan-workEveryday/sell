@@ -1,6 +1,8 @@
 package com.example.demo.dataobject;
 
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +11,8 @@ import java.util.Date;
 //java 持久化 api 中的注解，表明这是一个实体类，可以和@Table（name = ""）使用
 //在Java data jpa中可以使用
 @Entity
+//插件Lombok，帮我们生成getter，setter，hashcode和equal重写，requiredArgsConstruct
+@Data
 public class ProductCategory {
     @Id //表明主键，没有就会报错
     @GeneratedValue(strategy = GenerationType.IDENTITY)//表明主键的自增，就不会重复。
